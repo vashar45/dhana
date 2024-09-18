@@ -16,8 +16,8 @@ jobs:
     - name: Copy files to EC2
       uses: appleboy/scp-action@master
       with:
-        host:http://52.66.239.7/
-        username:ec2-user
+        host: 52.66.239.7  # Use just the IP address without http://
+        username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}  # Your private key stored in GitHub Secrets
         source: "index.html"  # Adjust to the path of your HTML files
         target: "/usr/share/nginx/html"
