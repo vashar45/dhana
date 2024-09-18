@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Copy files to EC2
-      uses: appleboy/scp-action@master
-      with:
-        host: 52.66.239.7  # Use just the IP address without http://
-        username: ec2-user
-        key: ${{ secrets.EC2_SSH_KEY }}  # Your private key stored in GitHub Secrets
-        source: "index.html"  # Adjust to the path of your HTML files
-        target: "/usr/share/nginx/html"
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: 52.66.239.7  # Use just the IP address without http://
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}  # Your private key stored in GitHub Secrets
+          source: "index.html"  # Adjust to the path of your HTML files
+          target: "/usr/share/nginx/html"
